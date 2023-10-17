@@ -16,6 +16,8 @@ NUMERIC_COULMN_KEY = "numerical_columns"
 CATEGORICAL_COLUMN_KEY = "categorical_columns"
 TARGET_COLUMN_KEY = "target_column"
 
+NO_CLUSTER = 3
+
 #training pipeline related variables
 
 TRAINING_PIPELINE_CONFIG_KEY = "training_pipeline_config"
@@ -39,3 +41,15 @@ DATA_VALIDATION_DIR = "data_validation"
 DATA_VALIDATION_SCHEMA_DIR_KEY = "schema_dir"
 DATA_VALIDATION_SCHEMA_FILE_KEY = "schema_file"
 DATA_VALIDATION_REPORT_PAGE_FILE_NAME = "report_page_file_name"
+
+#data transform related varibales
+
+DATA_TRANSFORM_CONFIG_KEY = "data_transform_config"
+DATA_TRANSFORM_DIR = "data_transform"
+DATA_TRANSFORM_GRAPH_DIR_KEY = "graph_save_dir"
+DATA_TRANSFORM_TRAIN_DIR_KEY = "train_dir"
+DATA_TRANSFORM_TEST_DIR_KEY = "test_dir"
+DATA_TRANSFORM_PREPROCESSED_OBJECT_DIR_KEY = "preprocessed_object_dir"
+DATA_TRANSFORM_PREPROCESSED_OBJECT_FILE_NAME_KEY = "preprocessed_object_file_name"
+DATA_TRANSFORM_CLUSTER_MODEL_DIR_KEY = "cluster_model_dir"
+DATA_TRANSFORM_CLUSTER_MODEL_NAME_KEY = "cluster_model_name"
