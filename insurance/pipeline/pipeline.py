@@ -2,9 +2,10 @@ import os,sys
 from insurance.logger import logging
 from insurance.exception import InsuranceException
 from insurance.config.configuration import Configuration
-from insurance.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact
+from insurance.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact,DataTransformArtifact
 from insurance.components.data_ingestion import DataIngestion
 from insurance.components.data_validation import DataValidation
+from insurance.components.data_transform import DataTransform
 
 class Pipeline:
 
@@ -29,9 +30,21 @@ class Pipeline:
         except Exception as e:
             raise InsuranceException(sys,e) from e
         
+    def start_data_transform(self,data_ingestion_artifact:DataIngestionArtifact,
+                            data_validation_artifact:DataValidationArtifact)->DataTransformArtifact:
+        try:
+            data_transform = DataTransform(data_transform_config=self.config.get_data_transform_config(),
+                                           data_ingestion_artifact=data_ingestion_artifact,
+                                           data_validation_artifact=data_validation_artifact)
+            return data_transform.intiate_data_transform()
+        except Exception as e:
+            raise InsuranceException(sys,e) from e
+        
     def run_pipeline(self):
         try:
             data_ingestion_artifact = self.start_data_ingestion()
             data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
+            data_transform_artifact = self.start_data_transform(data_ingestion_artifact=data_ingestion_artifact,
+                                                                data_validation_artifact=data_validation_artifact)
         except Exception as e:
             raise InsuranceException(sys,e) from e

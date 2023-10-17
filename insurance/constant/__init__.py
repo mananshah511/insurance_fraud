@@ -18,6 +18,11 @@ TARGET_COLUMN_KEY = "target_column"
 
 NO_CLUSTER = 3
 
+DROP_COLUMN_LIST = ['policy_bind_date','policy_number','policy_state','insured_zip',
+                   'incident_location', 'incident_date', 'incident_state','incident_city',
+                    'insured_hobbies', 'auto_make' , 'auto_model' , 'auto_year', 'age', 'total_claim_amount'
+]
+
 #training pipeline related variables
 
 TRAINING_PIPELINE_CONFIG_KEY = "training_pipeline_config"
