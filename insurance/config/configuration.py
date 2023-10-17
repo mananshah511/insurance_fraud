@@ -1,7 +1,7 @@
 import os,sys
 from insurance.exception  import InsuranceException
 from insurance.logger import logging
-from insurance.entity.config_entity import TrainingPipelineConfig,DataIngestionConfig
+from insurance.entity.config_entity import TrainingPipelineConfig,DataIngestionConfig,DataValidationConfig
 from insurance.util.util import read_yaml
 from insurance.constant import *
 
@@ -45,6 +45,32 @@ class Configuration:
             logging.info(f"data ingestion config : {data_ingestion_config}")
 
             return data_ingestion_config
+        except Exception as e:
+            raise InsuranceException(sys,e)
+        
+
+    def get_data_validation_config(self)->DataValidationConfig:
+        try:
+            logging.info(f"get data validation config function started")
+
+            artifact_dir = self.training_pipeline_config.artifact_dir
+
+            data_validation_config = self.config_info[DATA_VALIDTION_CONFIG_KEY]
+
+            data_validation_dir = os.path.join(artifact_dir,DATA_VALIDATION_DIR,self.current_time_stamp)
+
+            schema_dir = os.path.join(ROOT_DIR,data_validation_config[DATA_VALIDATION_SCHEMA_DIR_KEY],
+                                      data_validation_config[DATA_VALIDATION_SCHEMA_FILE_KEY])
+            
+            report_dir = os.path.join(data_validation_dir,data_validation_config[DATA_VALIDATION_REPORT_PAGE_FILE_NAME])
+
+            data_validation_config = DataValidationConfig(schema_file_dir=schema_dir,
+                                                          report_page_file_dir=report_dir,
+                                                          report_name=data_validation_config[DATA_VALIDATION_REPORT_PAGE_FILE_NAME])
+            
+            logging.info(f"data validation config : {data_validation_config}")
+
+            return data_validation_config
         except Exception as e:
             raise InsuranceException(sys,e)
         
