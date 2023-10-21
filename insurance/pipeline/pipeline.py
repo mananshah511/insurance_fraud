@@ -2,12 +2,13 @@ import os,sys
 from insurance.logger import logging
 from insurance.exception import InsuranceException
 from insurance.config.configuration import Configuration
-from insurance.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact,DataTransformArtifact,ModelTrainerArtifact,ModelEvulationArtifact
+from insurance.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact,DataTransformArtifact,ModelTrainerArtifact,ModelEvulationArtifact,ModelPusherArtifact
 from insurance.components.data_ingestion import DataIngestion
 from insurance.components.data_validation import DataValidation
 from insurance.components.data_transform import DataTransform
 from insurance.components.model_trainer import ModelTrainer
 from insurance.components.model_evulation import ModelEvulation
+from insurance.components.model_pusher import ModelPusher
 
 class Pipeline:
 
@@ -60,6 +61,14 @@ class Pipeline:
         except Exception as e:
             raise InsuranceException(sys,e) from e
         
+    def start_model_pusher(self,model_evulation_artifact:ModelEvulationArtifact)->ModelPusherArtifact:
+        try:
+            model_pusher = ModelPusher(model_evulation_artifact=model_evulation_artifact,
+                                       model_pusher_config=self.config.get_model_pusher_config())
+            return model_pusher.intiate_model_pusher()
+        except Exception as e:
+            raise InsuranceException(sys,e) from e
+        
     def run_pipeline(self):
         try:
             data_ingestion_artifact = self.start_data_ingestion()
@@ -69,5 +78,6 @@ class Pipeline:
             model_trainer_artifact = self.start_model_trainer(data_transform_artifact=data_transform_artifact)
             model_evulation_artifact = self.start_model_evulation(data_transform_artifact=data_transform_artifact,
                                                                   model_trainer_artifact=model_trainer_artifact)
+            model_pusher_artifact = self.start_model_pusher(model_evulation_artifact=model_evulation_artifact)
         except Exception as e:
             raise InsuranceException(sys,e) from e
