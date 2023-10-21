@@ -53,7 +53,7 @@ def get_evulated_classification_model(model_list:list,X_train:np.ndarray,y_train
             logging.info(f"model accuracy is : {model_accuracy}")
             logging.info(f"diff in train test accuracy is : {diff_train_test_accuracy}")
 
-            if model_accuracy >= base_accuracy and diff_train_test_accuracy < 0.05:
+            if model_accuracy >= base_accuracy and diff_train_test_accuracy < 0.30:
                 base_accuracy = model_accuracy
 
                 metric_info_artifact = MetricInfoArtifact(model_name=model_name,
@@ -64,10 +64,10 @@ def get_evulated_classification_model(model_list:list,X_train:np.ndarray,y_train
                                                           index_number=index_number)
                 index_number +=1
 
-            if metric_info_artifact is None:
-                logging.info(f"no model mathced base accuracy")
+        if metric_info_artifact is None:
+            logging.info(f"no model matched base accuracy")
 
-            return metric_info_artifact  
+        return metric_info_artifact  
     except Exception as e:
         raise InsuranceException(sys,e) from e
     
@@ -174,7 +174,7 @@ class ModelFactory:
     def initite_best_parameter_search_for_initlized_model(self,intlized_model_details:InitlizedModelDetails,
                                                           input_feature,output_feature)->GridSearchedBestModel:
         try:
-            logging.info(f"finding best parameters fro each models")
+            logging.info(f"finding best parameters for each models")
 
             grid_search_ref = ModelFactory.class_for_name(class_name=self.grid_search_cv_class_module,
                                                           module_name=self.grid_search_cv_module)
