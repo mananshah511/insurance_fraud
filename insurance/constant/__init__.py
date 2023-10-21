@@ -16,7 +16,7 @@ NUMERIC_COULMN_KEY = "numerical_columns"
 CATEGORICAL_COLUMN_KEY = "categorical_columns"
 TARGET_COLUMN_KEY = "target_column"
 
-NO_CLUSTER = 3
+NO_CLUSTER = 4
 
 DROP_COLUMN_LIST = ['policy_bind_date','policy_number','policy_state','insured_zip',
                    'incident_location', 'incident_date', 'incident_state','incident_city',
