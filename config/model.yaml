@@ -1,0 +1,28 @@
+grid_search:
+  class: GridSearchCV
+  module: sklearn.model_selection
+  params:
+    cv: 5
+    verbose: 2
+
+model_selection:
+  module_0:
+    class: DecisionTreeClassifier
+    module: sklearn.tree
+    params:
+      max_depth: 2
+    search_param_grid:
+      max_depth:
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 15
+      - 20
