@@ -23,6 +23,10 @@ DROP_COLUMN_LIST = ['policy_bind_date','policy_number','policy_state','insured_z
                     'insured_hobbies', 'auto_make' , 'auto_model' , 'auto_year', 'age', 'total_claim_amount'
 ]
 
+BEST_MODEL_KEY = "best_model"
+HISTORY_KEY = "history"
+MODEL_PATH_KEY = "model_path"
+
 #training pipeline related variables
 
 TRAINING_PIPELINE_CONFIG_KEY = "training_pipeline_config"

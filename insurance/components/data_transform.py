@@ -89,8 +89,6 @@ class DataTransform:
             columns = df.columns
 
             df = pd.DataFrame(df,columns=columns)
-            rd_sample = RandomOverSampler()
-            df, target_df = rd_sample.fit_resample(df,target_df.astype('int64'))
             df = pd.concat([df,target_df],axis=1)
             return df
         except Exception as e:

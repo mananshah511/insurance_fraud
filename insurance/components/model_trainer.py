@@ -94,12 +94,12 @@ class ModelTrainer:
                 cluster_path = os.path.join(cluster_dir,model_name)
 
                 with open(cluster_path,'wb') as object_file:
-                    dill.dump(cluster_path,object_file)
+                    dill.dump(model_object,object_file)
                 logging.info(f"model saved successfully")
 
-                train_accuracy.append(train_accuracy)
-                test_accuracy.append(test_accuracy)
-                model_accuracy.append(model_accuracy)
+                train_accuracy.append(metric_info.train_accuracy)
+                test_accuracy.append(metric_info.test_accuracy)
+                model_accuracy.append(metric_info.model_accuracy)
 
             model_trainer_artifact = ModelTrainerArtifact(is_trained=True,
                                                           message="successfully",
