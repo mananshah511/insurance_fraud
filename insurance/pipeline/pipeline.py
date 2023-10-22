@@ -2,13 +2,14 @@ import os,sys
 from insurance.logger import logging
 from insurance.exception import InsuranceException
 from insurance.config.configuration import Configuration
-from insurance.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact,DataTransformArtifact,ModelTrainerArtifact,ModelEvulationArtifact,ModelPusherArtifact
+from insurance.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact,DataTransformArtifact,ModelTrainerArtifact,ModelEvulationArtifact,ModelPusherArtifact,FinalArtifact
 from insurance.components.data_ingestion import DataIngestion
 from insurance.components.data_validation import DataValidation
 from insurance.components.data_transform import DataTransform
 from insurance.components.model_trainer import ModelTrainer
 from insurance.components.model_evulation import ModelEvulation
 from insurance.components.model_pusher import ModelPusher
+import json
 
 class Pipeline:
 
@@ -79,5 +80,12 @@ class Pipeline:
             model_evulation_artifact = self.start_model_evulation(data_transform_artifact=data_transform_artifact,
                                                                   model_trainer_artifact=model_trainer_artifact)
             model_pusher_artifact = self.start_model_pusher(model_evulation_artifact=model_evulation_artifact)
+
+            final_artifact = FinalArtifact(cluster_model_path=data_transform_artifact.cluster_model_dir,
+                                           export_dir_path=model_pusher_artifact.export_dir_path,
+                                           ingested_train_data=data_ingestion_artifact.train_file_path)
+            
+            with open('data.json', 'w') as json_obj:
+                json.dump(final_artifact._asdict(), json_obj)
         except Exception as e:
             raise InsuranceException(sys,e) from e
