@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: inline-table;
+            font-weight: bold;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Insurance Form</h2>
+    <form action="#" method="post">
+        <div class="form-group">
+            <label for="months_as_customer">Months as Customer:</label>
+            <input type="text" id="months_as_customer" name="months_as_customer">
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age">
+        </div>
+        <div class="form-group">
+            <label for="policy_number">Policy Number:</label>
+            <input type="text" id="policy_number" name="policy_number">
+        </div>
+        <div class="form-group">
+            <label for="policy_bind_date">Policy Bind Date:</label>
+            <input type="text" id="policy_bind_date" name="policy_bind_date">
+        </div>
+        <div class="form-group">
+            <label for="policy_state">Policy State:</label>
+            <input type="text" id="policy_state" name="policy_state">
+        </div>
+        <div class="form-group">
+            <label for="policy_csl">Policy CSL:</label>
+            <input type="text" id="policy_csl" name="policy_csl">
+        </div>
+        <div class="form-group">
+            <label for="policy_deductable">Policy Deductable:</label>
+            <input type="text" id="policy_deductable" name="policy_deductable">
+        </div>
+        <div class="form-group">
+            <label for="policy_annual_premium">Policy Annual Premium:</label>
+            <input type="text" id="policy_annual_premium" name="policy_annual_premium">
+        </div>
+        <div class="form-group">
+            <label for="umbrella_limit">Umbrella Limit:</label>
+            <input type="text" id="umbrella_limit" name="umbrella_limit">
+        </div>
+        <div class="form-group">
+            <label for="insured_zip">Insured Zip:</label>
+            <input type="text" id="insured_zip" name="insured_zip">
+        </div>
+        <div class="form-group">
+            <label for="insured_sex">Insured Sex:</label>
+            <select id="insured_sex" name="insured_sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="insured_education_level">Insured Education Level:</label>
+            <input type="text" id="insured_education_level" name="insured_education_level">
+        </div>
+        <div class="form-group">
+            <label for="insured_occupation">Insured Occupation:</label>
+            <input type="text" id="insured_occupation" name="insured_occupation">
+        </div>
+        <div class="form-group">
+            <label for="insured_hobbies">Insured Hobbies:</label>
+            <input type="text" id="insured_hobbies" name="insured_hobbies">
+        </div>
+        <div class="form-group">
+            <label for="insured_relationship">Insured Relationship:</label>
+            <input type="text" id="insured_relationship" name="insured_relationship">
+        </div>
+        <div class="form-group">
+            <label for="capital-gains">Capital Gains:</label>
+            <input type="text" id="capital-gains" name="capital-gains">
+        </div>
+        <div class="form-group">
+            <label for="capital-loss">Capital Loss:</label>
+            <input type="text" id="capital-loss" name="capital-loss">
+        </div>
+        <div class="form-group">
+            <label for="incident_date">Incident Date:</label>
+            <input type="text" id="incident_date" name="incident_date">
+        </div>
+        <div class="form-group">
+            <label for="incident_type">Incident Type:</label>
+            <input type="text" id="incident_type" name="incident_type">
+        </div>
+        <div class="form-group">
+            <label for="collision_type">Collision Type:</label>
+            <input type="text" id="collision_type" name="collision_type">
+        </div>
+        <div class="form-group">
+            <label for="incident_severity">Incident Severity:</label>
+            <input type="text" id="incident_severity" name="incident_severity">
+        </div>
+        <div class="form-group">
+            <label for="authorities_contacted">Authorities Contacted:</label>
+            <input type="text" id="authorities_contacted" name="authorities_contacted">
+        </div>
+        <div class="form-group">
+            <label for="incident_state">Incident State:</label>
+            <input type="text" id="incident_state" name="incident_state">
+        </div>
+        <div class="form-group">
+            <label for="incident_city">Incident City:</label>
+            <input type="text" id="incident_city" name="incident_city">
+        </div>
+        <div class="form-group">
+            <label for="incident_location">Incident Location:</label>
+            <input type="text" id="incident_location" name="incident_location">
+        </div>
+        <div class="form-group">
+            <label for="incident_hour_of_the_day">Incident Hour of the Day:</label>
+            <input type="text" id="incident_hour_of_the_day" name="incident_hour_of_the_day">
+        </div>
+        <div class="form-group">
+            <label for="number_of_vehicles_involved">Number of Vehicles Involved:</label>
+            <input type="text" id="number_of_vehicles_involved" name="number_of_vehicles_involved">
+        </div>
+        <div class="form-group">
+            <label for="property_damage">Property Damage:</label>
+            <input type="text" id="property_damage" name="property_damage">
+        </div>
+        <div class="form-group">
+            <label for="bodily_injuries">Bodily Injuries:</label>
+            <input type="text" id="bodily_injuries" name="bodily_injuries">
+        </div>
+        <div class="form-group">
+            <label for="witnesses">Witnesses:</label>
+            <input type="text" id="witnesses" name="witnesses">
+        </div>
+        <div class="form-group">
+            <label for="police_report_available">Police Report Available:</label>
+            <input type="text" id="police_report_available" name="police_report_available">
+        </div>
+        <div class="form-group">
+            <label for="total_claim_amount">Total Claim Amount:</label>
+            <input type="text" id="total_claim_amount" name="total_claim_amount">
+        </div>
+        <div class="form-group">
+            <label for="injury_claim">Injury Claim:</label>
+            <input type="text" id="injury_claim" name="injury_claim">
+        </div>
+        <div class="form-group">
+            <label for="property_claim">Property Claim:</label>
+            <input type="text" id="property_claim" name="property_claim">
+        </div>
+        <div class="form-group">
+            <label for="vehicle_claim">Vehicle Claim:</label>
+            <input type="text" id="vehicle_claim" name="vehicle_claim">
+        </div>
+        <div class="form-group">
+            <label for="auto_make">Auto Make:</label>
+            <input type="text" id="auto_make" name="auto_make">
+        </div>
+        <div class="form-group">
+            <label for="auto_model">Auto Model:</label>
+            <input type="text" id="auto_model" name="auto_model">
+        </div>
+        <div class="form-group">
+            <label for="auto_year">Auto Year:</label>
+            <input type="text" id="auto_year" name="auto_year">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Predict">
+        </div>
+    </form>
+</div>
+<div class="container">
+    <h2>Insurance Model Training</h2>
+    <form id="insurance-train" action="{{ url_for('train')}}" method="post">
+        <div class="form-group">
+            <input type="submit" value="Train">
+        </div>
+    </form>
+<div class="container"><b>
+{{prediction_text}}</b>
+</div>
+
+</body>
+</html>
